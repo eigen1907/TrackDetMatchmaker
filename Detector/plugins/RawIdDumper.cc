@@ -45,7 +45,7 @@ private:
   
   const std::string m_output_file_name;
     
-  const std::string m_header = "idx,rawId,subDet";
+  const std::string m_header = "raw_id,sub_det";
   const char m_delimeter = ',';
 };
 
@@ -59,7 +59,6 @@ RawIdDumper::RawIdDumper(const edm::ParameterSet& pset):
 
 void RawIdDumper::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
   edm::ParameterSetDescription desc;
-  //desc.addUntracked<std::string>("outputFileName", "output.csv");
   desc.setAllowAnything();
   descriptions.addWithDefaultLabel(desc);
 }
@@ -115,11 +114,9 @@ void RawIdDumper::beginRun(const edm::Run& run, const edm::EventSetup& eventsetu
 
   if (all_ids.size() != subDets.size()) return;
   for (size_t idx = 0; idx < all_ids.size(); ++idx) {
-    fout << idx          << m_delimeter
-         << all_ids[idx] << m_delimeter
+    fout << all_ids[idx] << m_delimeter
          << subDets[idx] << endl;
   } 
-
   return;
 
 }

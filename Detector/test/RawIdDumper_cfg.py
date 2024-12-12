@@ -36,14 +36,14 @@ process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:phase1_2024_realistic', '
 ### Consider the payload of the tag (e.g. https://cms-conddb.cern.ch/cmsDbBrowser/list/Prod/tags/RecoIdealGeometry_RPC_v3_hlt)
 ######################################################################################################
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('file:step2.root') ## if you want to use local root file
-    #fileNames = cms.untracked.vstring('root://cms-xrd-global.cern.ch//store/data/Run2023D/Muon0/AOD/PromptReco-v1/000/370/580/00001/ed65f587-336e-4ca8-a4ed-14dd220c70dc.root')
+    #fileNames = cms.untracked.vstring('file:step2.root') ## if you want to use local root file
+    fileNames = cms.untracked.vstring('root://cms-xrd-global.cern.ch//store/data/Run2024D/Muon0/AOD/PromptReco-v1/000/380/517/00000/1e5bd812-ec52-4553-8475-675c67c1e865.root')
 )
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )
 
 process.RawIdDumper = cms.EDAnalyzer("RawIdDumper",
-    outputFileName = cms.untracked.string("test.csv"),
+    outputFileName = cms.untracked.string("muonsystem_rawid.csv"),
 )
 
 process.p = cms.Path(process.RawIdDumper)

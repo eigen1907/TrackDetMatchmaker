@@ -1,0 +1,15 @@
+universe              = vanilla
+executable            = scripts/run_recosim_2024.sh
+arguments             = $(Process) 1000 /eos/user/j/joshin/TrackDetMatchmaker/RECOSIM_2024
+
+output               = logs/recosim_2024/job_$(Process).out
+error                = logs/recosim_2024/job_$(Process).err
+log                  = logs/recosim_2024/job_$(Process).log
+
+request_memory       = 4GB
+request_cpus         = 1
+request_disk         = 1GB
+
++JobFlavour          = "longlunch" 
+
+queue 1000

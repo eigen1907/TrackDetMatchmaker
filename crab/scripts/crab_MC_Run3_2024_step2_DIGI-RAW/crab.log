@@ -1,0 +1,468 @@
+DEBUG 2024-12-11 15:27:56.014 UTC: 	 CRAB Client version: v3.241125
+DEBUG 2024-12-11 15:27:56.014 UTC: 	 Running on: Linux lxplus945.cern.ch 5.14.0-427.40.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Oct 4 15:22:45 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2024-12-11 15:27:56.014 UTC: 	 Not using Singularity
+DEBUG 2024-12-11 15:27:56.014 UTC: 	 Operating System: Red Hat Enterprise Linux 9.5 (Plow)
+DEBUG 2024-12-11 15:27:56.014 UTC: 	 Executing command: 'submit'
+DEBUG 2024-12-11 15:27:56.024 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/joshin/.crab3
+DEBUG 2024-12-11 15:27:56.025 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+DEBUG 2024-12-11 15:27:56.192 UTC: 	 Checking credentials
+DEBUG 2024-12-11 15:27:56.192 UTC: 	 Found proxy file /tmp/x509up_u141493
+DEBUG 2024-12-11 15:27:56.192 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2024-12-11 15:27:56.192 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u141493
+DEBUG 2024-12-11 15:27:56.616 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2024-12-11 15:27:56.616 UTC: 	 Getting proxy life time left
+DEBUG 2024-12-11 15:27:56.616 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u141493
+DEBUG 2024-12-11 15:27:57.034 UTC: 	 output : 43054
+43054
+
+ error: 
+ retcode : 0
+DEBUG 2024-12-11 15:27:57.035 UTC: 	 Proxy valid for 11:57:34 hours
+DEBUG 2024-12-11 15:27:57.039 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2024-12-11 15:27:57.091 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+DEBUG 2024-12-11 15:27:57.091 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u141493
+DEBUG 2024-12-11 15:27:57.522 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=joshin/CN=852809/CN=Jongwon Shin
+
+ error: 
+ retcode : 0
+DEBUG 2024-12-11 15:27:57.523 UTC: 	 Getting myproxy life time left for 68229ae13e97b0dfc488515366c6ed3e6420d124
+DEBUG 2024-12-11 15:27:57.523 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l 68229ae13e97b0dfc488515366c6ed3e6420d124
+DEBUG 2024-12-11 15:27:57.822 UTC: 	 output : username: 68229ae13e97b0dfc488515366c6ed3e6420d124
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=joshin/CN=852809/CN=Jongwon Shin
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  timeleft: 711:56:47  (29.7 days)
+
+ error: 
+ retcode : 0
+DEBUG 2024-12-11 15:27:57.822 UTC: 	 Myproxy is valid: 2562960
+DEBUG 2024-12-11 15:27:57.822 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: 68229ae13e97b0dfc488515366c6ed3e6420d124  - validity: 29 days, 15:56:00
+DEBUG 2024-12-11 15:27:57.822 UTC: 	 Command use: submit
+DEBUG 2024-12-11 15:27:57.822 UTC: 	 Options use: ['--config', <WMCore.Configuration.Configuration object at 0x7f14044b05b0>]
+DEBUG 2024-12-11 15:27:57.822 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2024-12-11 15:27:57.869 UTC: 	 CRABClient version: v3.241125
+DEBUG 2024-12-11 15:27:57.869 UTC: 	 Instance is prod
+DEBUG 2024-12-11 15:27:57.869 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2024-12-11 15:27:57.869 UTC: 	 Command api workflow
+DEBUG 2024-12-11 15:27:57.869 UTC: 	 Started submission
+DEBUG 2024-12-11 15:27:57.870 UTC: 	 Working on /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW
+DEBUG 2024-12-11 15:27:57.870 UTC: 	 Encoded data for curl request: subresource=backendurls
+DEBUG 2024-12-11 15:27:57.965 UTC: 	 Loading required information from the environment
+DEBUG 2024-12-11 15:27:57.965 UTC: 	 Found CMSSW_14_2_0 for el9_amd64_gcc12 with base /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0
+DEBUG 2024-12-11 15:27:57.965 UTC: 	 Loading required information from the environment
+DEBUG 2024-12-11 15:27:57.965 UTC: 	 Found CMSSW_14_2_0 for el9_amd64_gcc12 with base /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0
+DEBUG 2024-12-11 15:27:57.965 UTC: 	 UNIQUE NAME: tarUUID 01ab75db-3f78-4b14-b44a-4b564744866d 
+DEBUG 2024-12-11 15:27:57.965 UTC: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.General.transferLogs = False
+config.General.requestName = 'MC_Run3_2024_step2_DIGI-RAW'
+config.section_('JobType')
+config.JobType.psetName = '/afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/test/step2_DIGI_L1_DIGI2RAW_HLT.py'
+config.JobType.maxMemoryMB = 2500
+config.JobType.pluginName = 'Analysis'
+config.section_('Data')
+config.Data.publication = False
+config.Data.outputDatasetTag = 'DIGI-RAW'
+config.Data.outLFNDirBase = '/store/user/joshin/MC_Run3_2024'
+config.Data.splitting = 'Automatic'
+config.Data.inputDataset = '/eos/user/j/joshin/MC_Run3_2024/Run3_2024_SinglemuPt1-1000/GENSIM/241211_115516/0000'
+config.section_('Site')
+config.Site.storageSite = 'T3_CH_CERNBOX'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2024-12-11 15:27:57.965 UTC: 	 self.config.JobType.psetName: /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/test/step2_DIGI_L1_DIGI2RAW_HLT.py
+INFO 2024-12-11 15:27:57.965 UTC: 	 Importing CMSSW configuration /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/test/step2_DIGI_L1_DIGI2RAW_HLT.py
+INFO 2024-12-11 15:28:04.503 UTC: 	 Finished importing CMSSW configuration /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/test/step2_DIGI_L1_DIGI2RAW_HLT.py
+DEBUG 2024-12-11 15:28:04.503 UTC: 	 Writing CMSSW configuration to /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/PSet.py
+DEBUG 2024-12-11 15:28:04.853 UTC: 	 The following EDM output files will be collected: ['output.root']
+DEBUG 2024-12-11 15:28:04.853 UTC: 	 The following TFile output files will be collected: []
+DEBUG 2024-12-11 15:28:04.853 UTC: 	 The following user output files (not listed as PoolOuputModule or TFileService in the CMSSW PSet) will be collected: 
+DEBUG 2024-12-11 15:28:04.853 UTC: 	 Loading required information from the environment
+DEBUG 2024-12-11 15:28:04.853 UTC: 	 Found CMSSW_14_2_0 for el9_amd64_gcc12 with base /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0
+DEBUG 2024-12-11 15:28:04.853 UTC: 	 Making tarball in /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/01ab75db-3f78-4b14-b44a-4b564744866ddefault.tgz
+DEBUG 2024-12-11 15:28:04.854 UTC: 	 Checking directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/bin
+DEBUG 2024-12-11 15:28:04.855 UTC: 	 Adding directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/bin to tarball
+DEBUG 2024-12-11 15:28:04.858 UTC: 	 Checking directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/python
+DEBUG 2024-12-11 15:28:04.858 UTC: 	 Adding directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/python to tarball
+DEBUG 2024-12-11 15:28:05.374 UTC: 	 Checking directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/cfipython
+DEBUG 2024-12-11 15:28:05.374 UTC: 	 Adding directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/cfipython to tarball
+DEBUG 2024-12-11 15:28:05.870 UTC: 	 Checking directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/lib
+DEBUG 2024-12-11 15:28:05.870 UTC: 	 Adding directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/lib to tarball
+DEBUG 2024-12-11 15:28:06.033 UTC: 	 Checking directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/biglib
+DEBUG 2024-12-11 15:28:06.033 UTC: 	 Adding directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/biglib to tarball
+DEBUG 2024-12-11 15:28:06.042 UTC: 	 Checking directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/module
+DEBUG 2024-12-11 15:28:06.042 UTC: 	 Checking directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/config/SCRAM/hooks
+DEBUG 2024-12-11 15:28:06.042 UTC: 	 Adding directory /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/config/SCRAM/hooks to tarball
+DEBUG 2024-12-11 15:28:06.535 UTC: 	 Uploading archive /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/01ab75db-3f78-4b14-b44a-4b564744866ddefault.tgz (464 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2024-12-11 15:28:06.693 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=ee49f378d2112c460926e862d8619af71a9b96fd43aa134d75bfc60e73327acf.tar.gz
+DEBUG 2024-12-11 15:28:06.745 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=joshin/sandboxes/ee49f378d2112c460926e862d8619af71a9b96fd43aa134d75bfc60e73327acf.tar.gz" -F "AWSAccessKeyId=715203df6482458ba839e73e6dab634b" -F "policy=eyJleHBpcmF0aW9uIjogIjIwMjQtMTItMTFUMTY6Mjg6MDZaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiY3JhYmNhY2hlX3Byb2QifSwgeyJrZXkiOiAiam9zaGluL3NhbmRib3hlcy9lZTQ5ZjM3OGQyMTEyYzQ2MDkyNmU4NjJkODYxOWFmNzFhOWI5NmZkNDNhYTEzNGQ3NWJmYzYwZTczMzI3YWNmLnRhci5neiJ9XX0=" -F "signature=M0VlqtEHk5SGoVWuT9uH0Azpnvw=" -F "file=@/afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/01ab75db-3f78-4b14-b44a-4b564744866ddefault.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2024-12-11 15:28:06.799 UTC: 	 exitcode: 0
+stdout: b''
+DEBUG 2024-12-11 15:28:06.799 UTC: 	 upload to S3 of sandbox /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/01ab75db-3f78-4b14-b44a-4b564744866ddefault.tgz completed
+DEBUG 2024-12-11 15:28:06.799 UTC: 	 make sure that object is ready for retrieve
+DEBUG 2024-12-11 15:28:07.800 UTC: 	 Encoded data for curl request: subresource=download&objecttype=sandbox&tarballname=ee49f378d2112c460926e862d8619af71a9b96fd43aa134d75bfc60e73327acf.tar.gz&clientmethod=head_object
+DEBUG 2024-12-11 15:28:07.843 UTC: 	 PreSignedUrl to download sandbox received OK
+DEBUG 2024-12-11 15:28:07.846 UTC: 	 Will execute:
+ curl -v -s -f -o /dev/null --head  "https://s3.cern.ch/crabcache_prod/joshin/sandboxes/ee49f378d2112c460926e862d8619af71a9b96fd43aa134d75bfc60e73327acf.tar.gz?AWSAccessKeyId=715203df6482458ba839e73e6dab634b&Signature=ymZGCckPi6liuBstVo94Qyf6ijc%3D&Expires=1733934487"
+DEBUG 2024-12-11 15:28:07.883 UTC: 	 exitcode: 0
+stdout: b''
+DEBUG 2024-12-11 15:28:07.883 UTC: 	 sandbox /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/01ab75db-3f78-4b14-b44a-4b564744866ddefault.tgz successfully uploaded to S3
+DEBUG 2024-12-11 15:28:07.883 UTC: 	 Loading required information from the environment
+DEBUG 2024-12-11 15:28:07.883 UTC: 	 Found CMSSW_14_2_0 for el9_amd64_gcc12 with base /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0
+DEBUG 2024-12-11 15:28:07.883 UTC: 	 Making tarball in /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/debugFiles.tgz
+DEBUG 2024-12-11 15:28:07.888 UTC: 	 Uploading archive /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/debugFiles.tgz (2 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2024-12-11 15:28:07.889 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=510503872358ca131b11a1aece0dca8ffa703fecb3174f4e393792b4a83142c8.tar.gz
+DEBUG 2024-12-11 15:28:07.938 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=joshin/sandboxes/510503872358ca131b11a1aece0dca8ffa703fecb3174f4e393792b4a83142c8.tar.gz" -F "AWSAccessKeyId=715203df6482458ba839e73e6dab634b" -F "policy=eyJleHBpcmF0aW9uIjogIjIwMjQtMTItMTFUMTY6Mjg6MDdaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiY3JhYmNhY2hlX3Byb2QifSwgeyJrZXkiOiAiam9zaGluL3NhbmRib3hlcy81MTA1MDM4NzIzNThjYTEzMWIxMWExYWVjZTBkY2E4ZmZhNzAzZmVjYjMxNzRmNGUzOTM3OTJiNGE4MzE0MmM4LnRhci5neiJ9XX0=" -F "signature=Xh2BQNbUWmQU3WKdNDiBH7TJ+ZA=" -F "file=@/afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/debugFiles.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2024-12-11 15:28:08.063 UTC: 	 exitcode: 0
+stdout: b''
+DEBUG 2024-12-11 15:28:08.063 UTC: 	 upload to S3 of sandbox /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/debugFiles.tgz completed
+DEBUG 2024-12-11 15:28:08.063 UTC: 	 make sure that object is ready for retrieve
+DEBUG 2024-12-11 15:28:09.064 UTC: 	 Encoded data for curl request: subresource=download&objecttype=sandbox&tarballname=510503872358ca131b11a1aece0dca8ffa703fecb3174f4e393792b4a83142c8.tar.gz&clientmethod=head_object
+DEBUG 2024-12-11 15:28:09.111 UTC: 	 PreSignedUrl to download sandbox received OK
+DEBUG 2024-12-11 15:28:09.114 UTC: 	 Will execute:
+ curl -v -s -f -o /dev/null --head  "https://s3.cern.ch/crabcache_prod/joshin/sandboxes/510503872358ca131b11a1aece0dca8ffa703fecb3174f4e393792b4a83142c8.tar.gz?AWSAccessKeyId=715203df6482458ba839e73e6dab634b&Signature=T2xM0Sq0JL%2FRQP%2B3SkdZFAOmOZw%3D&Expires=1733934489"
+DEBUG 2024-12-11 15:28:09.151 UTC: 	 exitcode: 0
+stdout: b''
+DEBUG 2024-12-11 15:28:09.151 UTC: 	 sandbox /afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/scripts/crab_MC_Run3_2024_step2_DIGI-RAW/inputs/debugFiles.tgz successfully uploaded to S3
+DEBUG 2024-12-11 15:28:09.151 UTC: 	 Result uploading input files: ee49f378d2112c460926e862d8619af71a9b96fd43aa134d75bfc60e73327acf.tar.gz 
+DEBUG 2024-12-11 15:28:09.151 UTC: 	 submit() - self.configuration from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.General.transferLogs = False
+config.General.requestName = 'MC_Run3_2024_step2_DIGI-RAW'
+config.section_('JobType')
+config.JobType.psetName = '/afs/cern.ch/user/j/joshin/public/TrackDetMatchmaker/CMSSW_14_2_0/src/TrackDetMatchmaker/MC/test/step2_DIGI_L1_DIGI2RAW_HLT.py'
+config.JobType.maxMemoryMB = 2500
+config.JobType.pluginName = 'Analysis'
+config.section_('Data')
+config.Data.publication = False
+config.Data.outputDatasetTag = 'DIGI-RAW'
+config.Data.outLFNDirBase = '/store/user/joshin/MC_Run3_2024'
+config.Data.splitting = 'Automatic'
+config.Data.inputDataset = '/eos/user/j/joshin/MC_Run3_2024/Run3_2024_SinglemuPt1-1000/GENSIM/241211_115516/0000'
+config.section_('Site')
+config.Site.storageSite = 'T3_CH_CERNBOX'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2024-12-11 15:28:09.151 UTC: 	 submit() - self.configreq {'dryrun': 0, 'workflow': 'crab_MC_Run3_2024_step2_DIGI-RAW', 'saveoutput': 1, 'savelogsflag': 0, 'inputdata': '/eos/user/j/joshin/MC_Run3_2024/Run3_2024_SinglemuPt1-1000/GENSIM/241211_115516/0000', 'nonvaliddata': 0, 'userfiles': [], 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'useparent': 0, 'ignorelocality': 0, 'splitalgo': 'Automatic', 'algoargs': 480, 'totalunits': 0, 'lfn': '/store/user/joshin/MC_Run3_2024', 'publication': 0, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'publishname2': 'DIGI-RAW', 'jobtype': 'Analysis', 'generator': 'pythia', 'addoutputfiles': [], 'maxjobruntime': 1250, 'numcores': 1, 'maxmemory': 2500, 'priority': 10, 'nonprodsw': 0, 'asyncdest': 'T3_CH_CERNBOX', 'requireaccelerator': 0, 'oneEventMode': 0, 'extrajdl': [], 'ignoreglobalblacklist': 0, 'partialdataset': 0, 'inputblocks': []}
+DEBUG 2024-12-11 15:28:09.151 UTC: 	 submit() - jobconfig {'addoutputfiles': [], 'tfileoutfiles': [], 'edmoutfiles': ['output.root'], 'jobarch': 'el9_amd64_gcc12', 'jobsw': 'CMSSW_14_2_0', 'inputdata': '/eos/user/j/joshin/MC_Run3_2024/Run3_2024_SinglemuPt1-1000/GENSIM/241211_115516/0000', 'cacheurl': 'https://cmsweb.cern.ch/S3/crabcache_prod', 'cachefilename': 'ee49f378d2112c460926e862d8619af71a9b96fd43aa134d75bfc60e73327acf.tar.gz', 'debugfilename': '510503872358ca131b11a1aece0dca8ffa703fecb3174f4e393792b4a83142c8.tar.gz', 'jobtype': 'Analysis'}
+INFO 2024-12-11 15:28:09.151 UTC: 	 Sending the request to the server at cmsweb.cern.ch
+DEBUG 2024-12-11 15:28:09.151 UTC: 	 Submitting {'dryrun': 0, 'workflow': 'crab_MC_Run3_2024_step2_DIGI-RAW', 'saveoutput': 1, 'savelogsflag': 0, 'inputdata': '/eos/user/j/joshin/MC_Run3_2024/Run3_2024_SinglemuPt1-1000/GENSIM/241211_115516/0000', 'nonvaliddata': 0, 'userfiles': [], 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'useparent': 0, 'ignorelocality': 0, 'splitalgo': 'Automatic', 'algoargs': 480, 'totalunits': 0, 'lfn': '/store/user/joshin/MC_Run3_2024', 'publication': 0, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'publishname2': 'DIGI-RAW', 'jobtype': 'Analysis', 'generator': 'pythia', 'addoutputfiles': [], 'maxjobruntime': 1250, 'numcores': 1, 'maxmemory': 2500, 'priority': 10, 'nonprodsw': 0, 'asyncdest': 'T3_CH_CERNBOX', 'requireaccelerator': 0, 'oneEventMode': 0, 'extrajdl': [], 'ignoreglobalblacklist': 0, 'partialdataset': 0, 'inputblocks': [], 'tfileoutfiles': [], 'edmoutfiles': ['output.root'], 'jobarch': 'el9_amd64_gcc12', 'jobsw': 'CMSSW_14_2_0', 'cacheurl': 'https://cmsweb.cern.ch/S3/crabcache_prod', 'cachefilename': 'ee49f378d2112c460926e862d8619af71a9b96fd43aa134d75bfc60e73327acf.tar.gz', 'debugfilename': '510503872358ca131b11a1aece0dca8ffa703fecb3174f4e393792b4a83142c8.tar.gz'} 
+DEBUG 2024-12-11 15:28:09.152 UTC: 	 Encoded data for curl request: dryrun=0&workflow=crab_MC_Run3_2024_step2_DIGI-RAW&saveoutput=1&savelogsflag=0&inputdata=%2Feos%2Fuser%2Fj%2Fjoshin%2FMC_Run3_2024%2FRun3_2024_SinglemuPt1-1000%2FGENSIM%2F241211_115516%2F0000&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&useparent=0&ignorelocality=0&splitalgo=Automatic&algoargs=480&totalunits=0&lfn=%2Fstore%2Fuser%2Fjoshin%2FMC_Run3_2024&publication=0&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&publishname2=DIGI-RAW&jobtype=Analysis&generator=pythia&maxjobruntime=1250&numcores=1&maxmemory=2500&priority=10&nonprodsw=0&asyncdest=T3_CH_CERNBOX&requireaccelerator=0&oneEventMode=0&ignoreglobalblacklist=0&partialdataset=0&jobarch=el9_amd64_gcc12&jobsw=CMSSW_14_2_0&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2FS3%2Fcrabcache_prod&cachefilename=ee49f378d2112c460926e862d8619af71a9b96fd43aa134d75bfc60e73327acf.tar.gz&debugfilename=510503872358ca131b11a1aece0dca8ffa703fecb3174f4e393792b4a83142c8.tar.gz&edmoutfiles=output.root
+DEBUG 2024-12-11 15:28:09.217 UTC: 	 Sleeping 21 seconds after HTTP error.
+Error:
+:  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 188.184.75.82:8443...
+* Connected to cmsweb.cern.ch (188.184.75.82) port 8443 (#0)
+* ALPN, offering http/1.1
+*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+*  CApath: /etc/grid-security/certificates/
+* TLSv1.0 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS header, Certificate Status (22):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* TLSv1.2 (IN), TLS header, Finished (20):
+{ [5 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+{ [21 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Request CERT (13):
+{ [6325 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+{ [2064 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+{ [264 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+{ [36 bytes data]
+* TLSv1.2 (OUT), TLS header, Finished (20):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Certificate (11):
+} [6242 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, CERT verify (15):
+} [264 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+} [36 bytes data]
+* SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: DC=ch; DC=cern; OU=computers; CN=cmsweb.cern.ch
+*  start date: Apr  2 19:51:56 2024 GMT
+*  expire date: May  7 19:51:56 2025 GMT
+*  subjectAltName: host "cmsweb.cern.ch" matched cert's "cmsweb.cern.ch"
+*  issuer: DC=ch; DC=cern; CN=CERN Grid Certification Authority
+*  SSL certificate verify ok.
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+> PUT /crabserver/prod/workflow HTTP/1.1
+> Host: cmsweb.cern.ch:8443
+> User-Agent: CRABClient/v3.241125
+> Accept: */*
+> Content-Length: 1011
+> Content-Type: application/x-www-form-urlencoded
+> 
+} [1011 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [6356 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 400 Bad Request
+< Content-Length: 733
+< Content-Type: text/html;charset=utf-8
+< Date: Wed, 11 Dec 2024 15:28:09 GMT
+< Response-Proto: HTTP/1.1
+< Response-Status: 400 Bad Request
+< Response-Status-Code: 400
+< Response-Time: 22.176784ms
+< Response-Time-Seconds: 0.022182593
+< X-Content-Type-Options: bla
+< X-Error-Detail: Invalid input parameter
+< X-Error-Http: 400
+< X-Error-Id: 0405325776ba0f7cdd21a3c0698fd4a3
+< X-Error-Info: Incorrect 'inputdata' parameter <class 'str'> /eos/user/j/joshin/MC_Run3_2024/Run3_2024_SinglemuPt1-1000/GENSIM/241211_115516/0000
+< X-Rest-Status: 302
+< X-Rest-Time: 18668.175 us
+< 
+{ [582 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+100  1744  100   733  100  1011  16693  23024 --:--:-- --:--:-- --:--:-- 40558
+* Connection #0 to host cmsweb.cern.ch left intact
+<!DOCTYPE html PUBLIC
+"-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>400 Bad Request</title>
+    <style type="text/css">
+    #powered_by {
+        margin-top: 20px;
+        border-top: 2px solid black;
+        font-style: italic;
+    }
+
+    #traceback {
+        color: red;
+    }
+    </style>
+</head>
+    <body>
+        <h2>400 Bad Request</h2>
+        <p>Invalid input parameter</p>
+        <pre id="traceback"></pre>
+    <div id="powered_by">
+      <span>
+        Powered by <a href="http://www.cherrypy.dev">CherryPy 18.8.0</a>
+      </span>
+    </div>
+    </body>
+</html>
+
+DEBUG 2024-12-11 15:28:09.662 UTC: 	 Sleeping 42 seconds after HTTP error.
+Error:
+:  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 188.184.73.32:8443...
+* Connected to cmsweb.cern.ch (188.184.73.32) port 8443 (#0)
+* ALPN, offering http/1.1
+*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+*  CApath: /etc/grid-security/certificates/
+* TLSv1.0 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS header, Certificate Status (22):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* TLSv1.2 (IN), TLS header, Finished (20):
+{ [5 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+{ [21 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Request CERT (13):
+{ [6325 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+{ [2064 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+{ [264 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+{ [36 bytes data]
+* TLSv1.2 (OUT), TLS header, Finished (20):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Certificate (11):
+} [6242 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, CERT verify (15):
+} [264 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+} [36 bytes data]
+* SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: DC=ch; DC=cern; OU=computers; CN=cmsweb.cern.ch
+*  start date: Apr  2 19:51:56 2024 GMT
+*  expire date: May  7 19:51:56 2025 GMT
+*  subjectAltName: host "cmsweb.cern.ch" matched cert's "cmsweb.cern.ch"
+*  issuer: DC=ch; DC=cern; CN=CERN Grid Certification Authority
+*  SSL certificate verify ok.
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+> PUT /crabserver/prod/workflow HTTP/1.1
+> Host: cmsweb.cern.ch:8443
+> User-Agent: CRABClient/v3.241125
+> Accept: */*
+> Content-Length: 1011
+> Content-Type: application/x-www-form-urlencoded
+> 
+} [1011 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [6356 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 400 Bad Request
+< Content-Length: 733
+< Content-Type: text/html;charset=utf-8
+< Date: Wed, 11 Dec 2024 15:28:09 GMT
+< Response-Proto: HTTP/1.1
+< Response-Status: 400 Bad Request
+< Response-Status-Code: 400
+< Response-Time: 404.513925ms
+< Response-Time-Seconds: 0.40451627
+< X-Content-Type-Options: bla
+< X-Error-Detail: Invalid input parameter
+< X-Error-Http: 400
+< X-Error-Id: 82d76121903ecb2093b5192a277249e2
+< X-Error-Info: Incorrect 'inputdata' parameter <class 'str'> /eos/user/j/joshin/MC_Run3_2024/Run3_2024_SinglemuPt1-1000/GENSIM/241211_115516/0000
+< X-Rest-Status: 302
+< X-Rest-Time: 400702.715 us
+< 
+{ [581 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+100  1744  100   733  100  1011   1727   2382 --:--:-- --:--:-- --:--:--  4113
+* Connection #0 to host cmsweb.cern.ch left intact
+<!DOCTYPE html PUBLIC
+"-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>400 Bad Request</title>
+    <style type="text/css">
+    #powered_by {
+        margin-top: 20px;
+        border-top: 2px solid black;
+        font-style: italic;
+    }
+
+    #traceback {
+        color: red;
+    }
+    </style>
+</head>
+    <body>
+        <h2>400 Bad Request</h2>
+        <p>Invalid input parameter</p>
+        <pre id="traceback"></pre>
+    <div id="powered_by">
+      <span>
+        Powered by <a href="http://www.cherrypy.dev">CherryPy 18.8.0</a>
+      </span>
+    </div>
+    </body>
+</html>
+
+INFO 2024-12-11 15:28:09.718 UTC: 	 Fatal error trying to connect to https://cmsweb.cern.ch:8443/crabserver/prod/workflow using dryrun=0&workflow=crab_MC_Run3_2024_step2_DIGI-RAW&saveoutput=1&savelogsflag=0&inputdata=%2Feos%2Fuser%2Fj%2Fjoshin%2FMC_Run3_2024%2FRun3_2024_SinglemuPt1-1000%2FGENSIM%2F241211_115516%2F0000&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&useparent=0&ignorelocality=0&splitalgo=Automatic&algoargs=480&totalunits=0&lfn=%2Fstore%2Fuser%2Fjoshin%2FMC_Run3_2024&publication=0&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&publishname2=DIGI-RAW&jobtype=Analysis&generator=pythia&maxjobruntime=1250&numcores=1&maxmemory=2500&priority=10&nonprodsw=0&asyncdest=T3_CH_CERNBOX&requireaccelerator=0&oneEventMode=0&ignoreglobalblacklist=0&partialdataset=0&jobarch=el9_amd64_gcc12&jobsw=CMSSW_14_2_0&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2FS3%2Fcrabcache_prod&cachefilename=ee49f378d2112c460926e862d8619af71a9b96fd43aa134d75bfc60e73327acf.tar.gz&debugfilename=510503872358ca131b11a1aece0dca8ffa703fecb3174f4e393792b4a83142c8.tar.gz&edmoutfiles=output.root.
+exit code from curl = 0
+HTTP code/reason = 400/Bad Request .  stdout:
+<!DOCTYPE html PUBLIC
+"-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>400 Bad Request</title>
+    <style type="text/css">
+    #powered_by {
+        margin-top: 20px;
+        border-top: 2px solid black;
+        font-style: italic;
+    }
+
+    #traceback {
+        color: red;
+    }
+    </style>
+</head>
+    <body>
+        <h2>400 Bad Request</h2>
+        <p>Invalid input parameter</p>
+        <pre id="traceback"></pre>
+    <div id="powered_by">
+      <span>
+        Powered by <a href="http://www.cherrypy.dev">CherryPy 18.8.0</a>
+      </span>
+    </div>
+    </body>
+</html>
+
