@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# 인자: 1) Job index, 2) 이전 단계 output root 디렉토리 3) output csv 디렉토리
 JOBID=$1
 INDIR=$2
 OUTDIR=$3
@@ -14,7 +13,10 @@ eval `scram runtime -sh`
 INFILE="root://eosuser.cern.ch/${INDIR}/output_${JOBID}.root"
 OUTFILE="root://eosuser.cern.ch/${OUTDIR}/output_${JOBID}.csv"
 
-cmsRun TrackDetMatchmaker/Matches/test/trackDetMatchesProducer_cfg.py \
-  maxEvents=-1 \
+cmsRun ${CMSSW_BASE}/src/TrackDetMatchmaker/Matches/test/trackDetMatchesProducer_cfg.py \
   inputFiles=${INFILE} \
-  outputFile=${OUTFILE}
+  outputFileName=output_${JOBID}.csv
+
+xrdcp output_${JOBID}.csv ${OUTFILE}
+rm output_${JOBID}.csv
+

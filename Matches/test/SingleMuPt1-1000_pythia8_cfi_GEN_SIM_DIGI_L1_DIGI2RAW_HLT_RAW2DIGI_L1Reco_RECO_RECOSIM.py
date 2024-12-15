@@ -1,21 +1,14 @@
 import FWCore.ParameterSet.Config as cms
 from FWCore.ParameterSet.VarParsing import VarParsing
 
-# 'analysis' 모드에서는 maxEvents, outputFile, inputFiles 등이 기본 제공됨.
+
 options = VarParsing('analysis')
-
-# 필요하다면 기본 값 재설정
-options.maxEvents = 10
-options.outputFile = 'file:RECOSIM.root'
-
-# 커맨드 라인 인자 파싱
 options.parseArguments()
 
 from Configuration.Eras.Era_Run3_2024_cff import Run3_2024
 
 process = cms.Process('HLT', Run3_2024)
 
-# 이하 기존 설정
 process.load('Configuration.StandardSequences.Services_cff')
 process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
 process.load('FWCore.MessageService.MessageLogger_cfi')
@@ -40,8 +33,8 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(options.maxEvents),
-    output = cms.optional.untracked.allowed(cms.int32,cms.PSet)
+    #input = cms.untracked.int32(options.maxEvents),
+    input = cms.untracked.int32(1000)
 )
 
 process.source = cms.Source("EmptySource")
@@ -94,7 +87,6 @@ process.genfiltersummary_step = cms.EndPath(process.genFilterSummary)
 process.endjob_step = cms.EndPath(process.endOfProcess)
 process.RECOSIMoutput_step = cms.EndPath(process.RECOSIMoutput)
 
-# Schedule 설정
 process.schedule.insert(0, process.generation_step)
 process.schedule.insert(1, process.genfiltersummary_step)
 process.schedule.insert(2, process.simulation_step)
