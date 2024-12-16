@@ -43,7 +43,7 @@ process.source = cms.Source("PoolSource",
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )
 
 process.RawIdDumper = cms.EDAnalyzer("RawIdDumper",
-    outputFileName = cms.untracked.string("muonsystem_rawid.csv"),
+    outputFileName = cms.untracked.string("muon_system_det_raw_id.csv"),
 )
 
 process.p = cms.Path(process.RawIdDumper)

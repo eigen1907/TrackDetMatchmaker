@@ -37,13 +37,9 @@ private:
   edm::EDGetTokenT<reco::MuonCollection> muonsToken_;
   std::string outputFileName_;
   
-  const std::string header_ = "pt,eta,phi,"
-                              "rawId0,rawId1,rawId2,rawId3,rawId4,rawId5,rawId6,rawId7,"
-                              "rawId8,rawId9,rawId10,rawId11,rawId12,rawId13,rawId14,"
-                              "rawId15,rawId16,rawId17,rawId18,rawId19,rawId20,rawId21,"
-                              "rawId22,rawId23,rawId24,rawId25,rawId26,rawId27,rawId28,"
-                              "rawId29,rawId30,rawId31";
+  const std::string header_ = "track_pt,track_eta,track_phi,det_raw_id";
   const char delimeter_ = ',';
+  const char sub_delimeter_ = ' ';
 };
 
 
@@ -77,11 +73,7 @@ void TrackDetMatches::analyze(const edm::Event& iEvent, const edm::EventSetup& i
         
       const auto muonMatches = muon.matches();
       for (const auto& chamberMatch: muonMatches) {
-        fout << chamberMatch.id.rawId() << delimeter_;
-      }
-
-      for (int i = 0; i < 32 - (int)muonMatches.size(); i++) {
-        fout << 0 << delimeter_;
+        fout << chamberMatch.id.rawId() << sub_delimeter_;
       }
 
       fout << std::endl;

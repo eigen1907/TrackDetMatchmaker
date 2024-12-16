@@ -45,7 +45,7 @@ private:
   
   const std::string m_output_file_name;
     
-  const std::string m_header = "raw_id,sub_det";
+  const std::string m_header = "det_raw_id,sub_det";
   const char m_delimeter = ',';
 };
 

@@ -15,8 +15,7 @@ OUTFILE="root://eosuser.cern.ch/${OUTDIR}/output_${JOBID}.csv"
 
 cmsRun ${CMSSW_BASE}/src/TrackDetMatchmaker/Matches/test/trackDetMatchesProducer_cfg.py \
   inputFiles=${INFILE} \
-  outputFileName=output_${JOBID}.csv
+  outputFileName=/tmp/${USER}_output_${JOBID}.csv
 
-xrdcp output_${JOBID}.csv ${OUTFILE}
-rm output_${JOBID}.csv
-
+xrdcp /tmp/${USER}_output_${JOBID}.csv ${OUTFILE}
+rm /tmp/${USER}_output_${JOBID}.csv
