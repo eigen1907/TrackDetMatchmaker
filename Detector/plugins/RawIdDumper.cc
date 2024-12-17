@@ -38,23 +38,23 @@ private:
   void analyze(const edm::Event&, const edm::EventSetup&) override {};
   void endRun(const edm::Run&, const edm::EventSetup&) override {};
 
-  edm::ESGetToken<DTGeometry, MuonGeometryRecord> m_dt_geom_token;
-  edm::ESGetToken<CSCGeometry, MuonGeometryRecord> m_csc_geom_token;
-  edm::ESGetToken<RPCGeometry, MuonGeometryRecord> m_rpc_geom_token;
-  edm::ESGetToken<GEMGeometry, MuonGeometryRecord> m_gem_geom_token;
+  edm::ESGetToken<DTGeometry, MuonGeometryRecord> DTGeomToken_;
+  edm::ESGetToken<CSCGeometry, MuonGeometryRecord> CSCGeomToken_;
+  edm::ESGetToken<RPCGeometry, MuonGeometryRecord> RPCGeomToken_;
+  edm::ESGetToken<GEMGeometry, MuonGeometryRecord> GEMGeomToken_;
   
-  const std::string m_output_file_name;
+  const std::string outputFileName_;
     
-  const std::string m_header = "det_raw_id,sub_det";
-  const char m_delimeter = ',';
+  const std::string header_ = "det_raw_id,sub_det";
+  const char delimeter_ = ',';
 };
 
 RawIdDumper::RawIdDumper(const edm::ParameterSet& pset):
-  m_dt_geom_token(esConsumes<DTGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
-  m_csc_geom_token(esConsumes<CSCGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
-  m_rpc_geom_token(esConsumes<RPCGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
-  m_gem_geom_token(esConsumes<GEMGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
-  m_output_file_name(pset.getUntrackedParameter<std::string>("outputFileName")) {}
+  DTGeomToken_(esConsumes<DTGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
+  CSCGeomToken_(esConsumes<CSCGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
+  RPCGeomToken_(esConsumes<RPCGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
+  GEMGeomToken_(esConsumes<GEMGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
+  outputFileName_(pset.getUntrackedParameter<std::string>("outputFileName")) {}
 
 
 void RawIdDumper::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
@@ -65,57 +65,57 @@ void RawIdDumper::fillDescriptions(edm::ConfigurationDescriptions& descriptions)
 
 
 void RawIdDumper::beginRun(const edm::Run& run, const edm::EventSetup& eventsetup) {
-  const auto& dtGeom = eventsetup.getData(m_dt_geom_token);
-  const auto& cscGeom = eventsetup.getData(m_csc_geom_token);
-  const auto& rpcGeom = eventsetup.getData(m_rpc_geom_token);
-  const auto& gemGeom = eventsetup.getData(m_gem_geom_token);
+  const auto& DTGeom = eventsetup.getData(DTGeomToken_);
+  const auto& CSCGeom = eventsetup.getData(CSCGeomToken_);
+  const auto& RPCGeom = eventsetup.getData(RPCGeomToken_);
+  const auto& GEMGeom = eventsetup.getData(GEMGeomToken_);
 
-  std::vector<uint32_t> dt_ids;
-  std::vector<uint32_t> csc_ids;
-  std::vector<uint32_t> rpc_ids;
-  std::vector<uint32_t> gem_ids;
+  std::vector<uint32_t> DTRawIds;
+  std::vector<uint32_t> CSCRawIds;
+  std::vector<uint32_t> RPCRawIds;
+  std::vector<uint32_t> GEMRawIds;
   
-  std::vector<uint32_t> all_ids;
-  std::vector<std::string> subDets;
+  std::vector<uint32_t> muonsystemRawIds;
+  std::vector<std::string> detType;
 
 
-  for ( const DTLayer* dtLayer : dtGeom.layers() ) {
-    dt_ids.push_back(dtLayer->geographicalId().rawId());
-    subDets.push_back("DT");
+  for ( const auto DTDet : DTGeom.dets() ) {
+    DTRawIds.push_back(DTDet->geographicalId().rawId());
+    detType.push_back("DT");
   }
 
-  for ( const CSCLayer* cscLayer : cscGeom.layers() ) {
-    csc_ids.push_back(cscLayer->geographicalId().rawId());
-    subDets.push_back("CSC");
+  for ( const auto CSCDet : CSCGeom.dets() ) {
+    CSCRawIds.push_back(CSCDet->geographicalId().rawId());
+    detType.push_back("CSC");
   }
   
-  for ( const RPCRoll* rpcRoll : rpcGeom.rolls() ) {
-    rpc_ids.push_back(rpcRoll->geographicalId().rawId());
-    subDets.push_back("RPC");
+  for ( const auto RPCDet : RPCGeom.dets() ) {
+    RPCRawIds.push_back(RPCDet->geographicalId().rawId());
+    detType.push_back("RPC");
   }
 
-  for ( const GEMEtaPartition* gemEtaPartition : gemGeom.etaPartitions() ) {
-    gem_ids.push_back(gemEtaPartition->geographicalId().rawId());
-    subDets.push_back("GEM");
+  for ( const auto GEMDet : GEMGeom.dets() ) {
+    GEMRawIds.push_back(GEMDet->geographicalId().rawId());
+    detType.push_back("GEM");
   }
 
-  sort(dt_ids.begin(), dt_ids.end());
-  sort(csc_ids.begin(), csc_ids.end());
-  sort(rpc_ids.begin(), rpc_ids.end());
-  sort(gem_ids.begin(), gem_ids.end());
+  sort(DTRawIds.begin(), DTRawIds.end());
+  sort(CSCRawIds.begin(), CSCRawIds.end());
+  sort(RPCRawIds.begin(), RPCRawIds.end());
+  sort(GEMRawIds.begin(), GEMRawIds.end());
 
-  all_ids.insert(all_ids.end(), dt_ids.begin(), dt_ids.end());
-  all_ids.insert(all_ids.end(), csc_ids.begin(), csc_ids.end());
-  all_ids.insert(all_ids.end(), rpc_ids.begin(), rpc_ids.end());
-  all_ids.insert(all_ids.end(), gem_ids.begin(), gem_ids.end());
+  muonsystemRawIds.insert(muonsystemRawIds.end(), DTRawIds.begin(), DTRawIds.end());
+  muonsystemRawIds.insert(muonsystemRawIds.end(), CSCRawIds.begin(), CSCRawIds.end());
+  muonsystemRawIds.insert(muonsystemRawIds.end(), RPCRawIds.begin(), RPCRawIds.end());
+  muonsystemRawIds.insert(muonsystemRawIds.end(), GEMRawIds.begin(), GEMRawIds.end());
 
-  std::ofstream fout(m_output_file_name);
-  fout << m_header << std::endl;
+  std::ofstream fout(outputFileName_);
+  fout << header_ << std::endl;
 
-  if (all_ids.size() != subDets.size()) return;
-  for (size_t idx = 0; idx < all_ids.size(); ++idx) {
-    fout << all_ids[idx] << m_delimeter
-         << subDets[idx] << endl;
+  if (muonsystemRawIds.size() != detType.size()) return;
+  for (size_t idx = 0; idx < muonsystemRawIds.size(); ++idx) {
+    fout << muonsystemRawIds[idx] << delimeter_
+         << detType[idx] << endl;
   } 
   return;
 

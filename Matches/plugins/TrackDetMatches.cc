@@ -39,7 +39,7 @@ private:
   
   const std::string header_ = "track_pt,track_eta,track_phi,det_raw_id";
   const char delimeter_ = ',';
-  const char sub_delimeter_ = ' ';
+  const char subDelimeter_ = ' ';
 };
 
 
@@ -73,7 +73,7 @@ void TrackDetMatches::analyze(const edm::Event& iEvent, const edm::EventSetup& i
         
       const auto muonMatches = muon.matches();
       for (const auto& chamberMatch: muonMatches) {
-        fout << chamberMatch.id.rawId() << sub_delimeter_;
+        fout << chamberMatch.id.rawId() << subDelimeter_;
       }
 
       fout << std::endl;

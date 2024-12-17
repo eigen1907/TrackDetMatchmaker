@@ -55,6 +55,10 @@ process.RECOSIMoutput = cms.OutputModule("PoolOutputModule",
     splitLevel = cms.untracked.int32(0)
 )
 
+from IOMC.RandomEngine.RandomServiceHelper import RandomNumberServiceHelper
+randSvc = RandomNumberServiceHelper(process.RandomNumberGeneratorService)
+randSvc.populate()
+
 process.generator = cms.EDFilter("Pythia8PtGun",
     PGunParameters = cms.PSet(
         AddAntiParticle = cms.bool(True),
