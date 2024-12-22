@@ -42,8 +42,8 @@ process.source = cms.Source("PoolSource",
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )
 
-process.DetUnitRawIdDumper = cms.EDAnalyzer("DetRawIdDumper",
+process.DetUnitRawIdDumper = cms.EDAnalyzer("DetUnitRawIdDumper",
     outputFileName = cms.untracked.string("det_unit_raw_id.csv"),
 )
 
-process.p = cms.Path(process.DetRawIdDumper)
+process.p = cms.Path(process.DetUnitRawIdDumper)
