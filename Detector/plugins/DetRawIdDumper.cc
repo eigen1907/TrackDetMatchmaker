@@ -26,10 +26,10 @@
 
 using namespace std;
 
-class RawIdDumper : public edm::one::EDAnalyzer<edm::one::WatchRuns> {
+class DetRawIdDumper : public edm::one::EDAnalyzer<edm::one::WatchRuns> {
 public:
-  explicit RawIdDumper(const edm::ParameterSet&);
-  ~RawIdDumper() = default;
+  explicit DetRawIdDumper(const edm::ParameterSet&);
+  ~DetRawIdDumper() = default;
 
   static void fillDescriptions(edm::ConfigurationDescriptions&);
 
@@ -49,7 +49,7 @@ private:
   const char delimeter_ = ',';
 };
 
-RawIdDumper::RawIdDumper(const edm::ParameterSet& pset):
+DetRawIdDumper::DetRawIdDumper(const edm::ParameterSet& pset):
   DTGeomToken_(esConsumes<DTGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
   CSCGeomToken_(esConsumes<CSCGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
   RPCGeomToken_(esConsumes<RPCGeometry, MuonGeometryRecord, edm::Transition::BeginRun>()),
@@ -57,14 +57,14 @@ RawIdDumper::RawIdDumper(const edm::ParameterSet& pset):
   outputFileName_(pset.getUntrackedParameter<std::string>("outputFileName")) {}
 
 
-void RawIdDumper::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+void DetRawIdDumper::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
   edm::ParameterSetDescription desc;
   desc.setAllowAnything();
   descriptions.addWithDefaultLabel(desc);
 }
 
 
-void RawIdDumper::beginRun(const edm::Run& run, const edm::EventSetup& eventsetup) {
+void DetRawIdDumper::beginRun(const edm::Run& run, const edm::EventSetup& eventsetup) {
   const auto& DTGeom = eventsetup.getData(DTGeomToken_);
   const auto& CSCGeom = eventsetup.getData(CSCGeomToken_);
   const auto& RPCGeom = eventsetup.getData(RPCGeomToken_);
@@ -122,4 +122,4 @@ void RawIdDumper::beginRun(const edm::Run& run, const edm::EventSetup& eventsetu
 }
 
 #include "FWCore/Framework/interface/MakerMacros.h"
-DEFINE_FWK_MODULE(RawIdDumper);
+DEFINE_FWK_MODULE(DetRawIdDumper);
