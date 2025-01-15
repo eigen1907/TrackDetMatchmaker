@@ -78,23 +78,23 @@ void DetUnitRawIdDumper::beginRun(const edm::Run& run, const edm::EventSetup& ev
   std::vector<uint32_t> muonsystemRawIds;
   std::vector<std::string> detType;
 
-
-  for ( const auto DTDet : DTGeom.detUnits() ) {
+  
+  for ( const auto DTDet : DTGeom.chambers() ) {
     DTRawIds.push_back(DTDet->geographicalId().rawId());
     detType.push_back("DT");
   }
 
-  for ( const auto CSCDet : CSCGeom.detUnits() ) {
+  for ( const auto CSCDet : CSCGeom.chambers() ) {
     CSCRawIds.push_back(CSCDet->geographicalId().rawId());
     detType.push_back("CSC");
   }
   
-  for ( const auto RPCDet : RPCGeom.detUnits() ) {
+  for ( const auto RPCDet : RPCGeom.rolls() ) {
     RPCRawIds.push_back(RPCDet->geographicalId().rawId());
     detType.push_back("RPC");
   }
 
-  for ( const auto GEMDet : GEMGeom.detUnits() ) {
+  for ( const auto GEMDet : GEMGeom.chambers() ) {
     GEMRawIds.push_back(GEMDet->geographicalId().rawId());
     detType.push_back("GEM");
   }

@@ -37,7 +37,8 @@ process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:phase1_2024_realistic', '
 ######################################################################################################
 process.source = cms.Source("PoolSource",
     #fileNames = cms.untracked.vstring('file:step2.root') ## if you want to use local root file
-    fileNames = cms.untracked.vstring('root://cms-xrd-global.cern.ch//store/data/Run2024D/Muon0/AOD/PromptReco-v1/000/380/517/00000/1e5bd812-ec52-4553-8475-675c67c1e865.root')
+    #fileNames = cms.untracked.vstring('root://cms-xrd-global.cern.ch//store/data/Run2024D/Muon0/AOD/PromptReco-v1/000/380/517/00000/1e5bd812-ec52-4553-8475-675c67c1e865.root')
+    fileNames = cms.untracked.vstring('file:/eos/user/j/joshin/TrackDetMatchmaker/RECOSIM_2024/output_0.root')
 )
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )
